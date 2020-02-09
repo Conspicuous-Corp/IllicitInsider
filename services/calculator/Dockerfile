@@ -8,8 +8,8 @@ COPY . .
 RUN pip3 install --no-cache-dir -r requirements.txt
 RUN pip3 install -U flask-cors
 
-EXPOSE 8082
+EXPOSE 8083
 
 ENTRYPOINT ["python"]
 
-CMD ["stockdata.py"]
+CMD ["calculator.py"]
