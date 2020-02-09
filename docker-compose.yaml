@@ -20,3 +20,8 @@ services:
         build: services/stockdata
         ports:
             - "8082:8082"
+    calculator:
+        container_name: calculator
+        build: services/calculator
+        ports:
+            - "8082:8083"

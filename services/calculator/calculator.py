@@ -1,16 +1,20 @@
 
 from flask import Flask
 from flask import request
+from flask_cors import CORS
 from calculator_funcs import calc
 
 app = Flask(__name__)
-cors = CORS(app)
+CORS(app)
 
 
 @app.route('/calc', methods=['GET', 'POST'])
 def calculat():
     if request.method == 'POST':
-        return calc(request.json())
+        if request.is_json():
+            return calc(request.json())
+        else:
+            return 'post a json object in the form\{op_a\:int, op_b\:int, oper\:int\}'
     else:
         return "oops"
 
