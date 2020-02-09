@@ -5,3 +5,7 @@ services:
         build: services/scraper
         ports:
             - "8081:8081"
+    stockdata:
+        build: services/stockdata
+        ports:
+            - "8082:8082"
