@@ -11,13 +11,16 @@ def divide(a, b):
     return a / b
 
 def calc(input):
+    answer = 0
     if input['oper'] == 0:
-        return add(input['op_a'], input['op_b'])
+        answer = add(input['op_a'], input['op_b'])
     elif input['oper'] == 1:
-        return subtract(input['op_a'], input['op_b'])
+        answer = subtract(input['op_a'], input['op_b'])
     elif input['oper'] == 2:
-        return multiply(input['op_a'], input['op_b'])
+        answer = multiply(input['op_a'], input['op_b'])
     elif input['oper'] == 3:
-        return divide(input['op_a'], input['op_b'])
+        answer = divide(input['op_a'], input['op_b'])
+    else:
+        return 'operator must be set as key=oper'
 
-    return 'operator must be set as key=oper'
+    return {'answer' : answer}
