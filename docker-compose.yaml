@@ -12,16 +12,22 @@ services:
           - NODE_ENV=development
     scraper:
         container_name: scraper
-        build: services/scraper
+        build: ./services/scraper
+        volumes: 
+          - ./services/scraper:/services/scraper
         ports:
             - "8081:8081"
     stockdata:
         container_name: stockdata
-        build: services/stockdata
+        build: ./services/stockdata
+        volumes: 
+          - ./services/stockdata:/services/stockdata
         ports:
             - "8082:8082"
     calculator:
         container_name: calculator
-        build: services/calculator
+        build: ./services/calculator
+        volumes: 
+          - ./services/calculator:/services/calculator
         ports:
             - "8083:8083"

@@ -1,4 +1,6 @@
-FROM node:11.15.0
+FROM node:11.15
+
+WORKDIR /var/www/client
 
 COPY . .
 

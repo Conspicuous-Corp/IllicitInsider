@@ -33,30 +33,24 @@ const TestButtons = () => {
 
   return (
     <div>
-      <p>Op A</p>
-      <p>
-        <InputNumber value={op_a} onChange={update_op_a} />
-      </p>
-
-      <p>Op B</p>
-      <p>
-        <InputNumber value={op_b} onChange={update_op_b} />
-      </p>
-
-      <p>Operator</p>
+      Op A
+      <InputNumber value={op_a} onChange={update_op_a} />
+      Op B
+      <InputNumber value={op_b} onChange={update_op_b} />
+      Operator
       <Radio.Group onChange={update_oper} value={oper}>
         <Radio value={0}>+</Radio>
         <Radio value={1}>-</Radio>
         <Radio value={2}>*</Radio>
         <Radio value={3}>/</Radio>
       </Radio.Group>
-
       <Button type="primary" onClick={calculate}>
         Calculate
       </Button>
-
-      <p>Result:</p>
-      <p>{result}</p>
+      <div>
+        Result:
+        <div>{result}</div>
+      </div>
     </div>
   );
 };
