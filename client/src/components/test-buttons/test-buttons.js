@@ -17,7 +17,8 @@ const TestButtons = () => {
   };
 
   const update_oper = value => {
-    set_oper(value);
+    console.log("Setting opper: ", value.target.value);
+    set_oper(value.target.value);
   };
 
   const calculate = () => {
@@ -27,8 +28,10 @@ const TestButtons = () => {
       oper: oper
     };
 
-    let response = axios.post("http://localhost:8083/calc", post_data);
-    set_result(response.answer);
+    axios.post("http://localhost:8083/calc", post_data).then(resp => {
+      console.log(resp);
+      set_result(resp.data.answer);
+    });
   };
 
   return (
@@ -41,8 +44,8 @@ const TestButtons = () => {
       <Radio.Group onChange={update_oper} value={oper}>
         <Radio value={0}>+</Radio>
         <Radio value={1}>-</Radio>
-        <Radio value={2}>*</Radio>
         <Radio value={3}>/</Radio>
+        <Radio value={2}>*</Radio>
       </Radio.Group>
       <Button type="primary" onClick={calculate}>
         Calculate

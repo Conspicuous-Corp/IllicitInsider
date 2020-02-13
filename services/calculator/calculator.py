@@ -11,8 +11,8 @@ CORS(app)
 @app.route('/calc', methods=['GET', 'POST'])
 def calculat():
     if request.method == 'POST':
-        if request.is_json():
-            return calc(request.json())
+        if request.is_json:
+            return calc(request.json)
         else:
             return 'post a json object in the form\{op_a\:int, op_b\:int, oper\:int\}'
     else:
